@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 SECURE_SSL_REDIRECT = False
 ALLOWED_HOSTS = ['image-editor22.herokuapp.com','127.0.0.1']
 SITE_ID = 1
