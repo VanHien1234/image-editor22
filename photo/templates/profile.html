@@ -1,0 +1,61 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% load static %}
+{% block head_title %}{% trans "Profile - " %}{{user}}{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href=" {% static 'css/profile.css' %}">
+
+    {% if user.is_authenticated %}
+
+    <div class="container mt-5 py-3">
+        <div style="color: #000; font-weight: bold; height: 50px; text-transform: uppercase; background-color:#FFC312 ;" class="text-center pt-3 mt-3 mb-3">
+            {{user}} - Profile 
+        </div>
+        <div class="row" style="width: 100%;">
+            <div class="col-xs-12 col-sm-7  left">
+                <div class="text-center">
+                    <i style="color:#FFC312 ; font-size: 3rem;" class="fas fa-user-astronaut"></i>
+                </div>
+                <div class="left_box pt-2 ">
+                    <p>Username: {{ user }}</p>
+                    <p>Email: {{ user.email }}</p>
+                    <p>first Name: {{ user.first_name }}</p>
+                    <p>first Name: {{ user.Last_name }}</p>
+                    <p>Date Joined: {{ user.date_joined }}</p>
+                    <p>Last Login: {{ user.last_login }}</p>
+                    <p>VIP Member :
+                        {% if request.user.groups.all.0.name == 'VIP_Member' %}
+                            <span class=" ml-5" style="padding: 10px; background-color: forestgreen; border-radius: 3px;box-shadow: 0 0 20px #eee;">Activated</span>
+                        {% else %}
+                            <span  class="ml-5" style="padding: 10px; background-color: red; border-radius: 3px;box-shadow: 0 0 20px #eee;"> Not Activated</span>
+                        {% endif %}
+                    </p>
+                </div>
+                
+            </div>
+            <div class="col-xs-12 col-sm-4 text-center right ">
+                <ul  class="list_act">
+                    <li><hr><a href="{% url 'photo:updateprofile' %}">Update Profile</a><hr></li>
+                    <li><a href="{% url 'photo:change_password' %}">Change Password</a><hr></li>
+                    <li><a href="">Change Email</a><hr></li>
+                    <li><a href="#">Upgrade VIP</a><hr></li>
+                    <li><a href="{% url 'photo:logout' %}">Log Out</a><hr></li>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+
+    
+    {% else %}
+
+    <h1>Please LOGIN</h1>
+
+    {% endif %}
+
+{% endblock %}

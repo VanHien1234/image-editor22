@@ -1,0 +1,31 @@
+body{
+    box-sizing: border-box;
+    background-image: url('https://wallpaperaccess.com/full/26174.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Numans', sans-serif;
+}
+.container{
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: rgba(0, 0, 0, 0.842) !important;
+    color: white;
+}
+
+
+.list_act li{
+    list-style: none;
+    margin-top: 15px;
+    
+}
+.list_act a{
+    text-decoration: none;
+    color: #FFC312;
+}
+hr{
+    border: solid 2px #FFC312;
+    width: 100%;
+}
+.left_box{
+    margin-left: 25%;
+}

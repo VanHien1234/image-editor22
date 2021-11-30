@@ -1,0 +1,101 @@
+body{
+    box-sizing: border-box;
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    font-family: 'Numans', sans-serif;
+    }
+    .container{
+    align-content: center;
+    }
+    .card{
+    height: 37%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40%;
+    background-color: rgba(0,0,0,0.5) !important;
+    }
+    .card-header h1,p{
+      color: white;
+    }
+    .card-footer p{
+      align-content:space-around;
+      justify-content: center;
+    }
+    
+    .card-footer .input_log {
+      background-color: #FFC312;
+      color: black;
+      padding:  5px ;
+      border-radius: 5px 0 0 5px;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 0;
+      height: 34px;
+      margin-right: -5px;
+      width: 50px;
+    }
+    input:focus{
+    outline: 0 0 0 0  ;
+    box-shadow: 0 0 0 0 ;
+    border: none;
+    
+    }
+    #id_login,#id_password{
+      width: 60%;
+      border-radius: 0 5px 5px 0;
+      margin-left: 0;
+      padding:  5px ;
+      border: none;
+    }
+    .secondaryAction{
+      color: #FFC312;
+    }
+    .btn-facebook {
+        border-radius: 5px;
+        padding: 5px;
+        background-color: #0F8EF2;
+        color: white;
+      }
+    .btn-facebook:hover{
+        background-color: white;
+        border: 2px solid #0F8EF2;
+      }
+      
+    .btn-grad {background-image: linear-gradient(to right, #F7971E 0%, #FFD200  51%, #F7971E  100%)}
+    .btn-grad {
+                margin: 10px;
+                padding: 10px 15px;
+                text-align: center;
+                text-transform: uppercase;
+                transition: 0.5s;
+                background-size: 200% auto;
+                color: black;            
+                box-shadow: 0 0 20px #eee;
+                border-radius: 10px;
+                border: none;
+                font-weight: bold;
+              }
+    .btn-grad:hover {
+                background-position: right center; /* change the direction of the change here */
+                color: #fff;
+                text-decoration: none;
+                border: none;
+              }
+    
+    @media screen and (max-width: 768px){
+      .card{
+      height: 30%;
+      width: 65%;
+      }
+    }
+    @media screen and (max-width: 572px){
+      .card{
+        height: 80%;
+        width: 70%;
+      }
+    }
+    
+    
+    

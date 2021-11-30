@@ -1,0 +1,60 @@
+
+  body{
+    box-sizing: border-box;
+    background-image: url('https://www.wallpaperbetter.com/wallpaper/499/495/656/vincent-van-gogh-painting-1080P-wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Numans', sans-serif;
+  }
+  
+  .card{
+    color: white;
+    width: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.733) !important;
+  }
+  label{display: block;}
+  input{
+    width: 90%;
+    margin-left:  5%;
+    border-radius: 5px;
+    
+  }
+  .signup p{
+    height: 70px;
+  }
+  
+  .btn-grad {background-image: linear-gradient(to right, #159957 0%, #155799  51%, #159957  100%)}
+  .btn-grad {
+            margin: 10px;
+            padding: 15px 25px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            
+            border-radius: 10px;
+            border: none;
+          }
+
+  .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+  @media screen and (max-width: 990px){
+  .card{
+  height: 30%;
+  width: 65%;
+  }
+}
+@media screen and (max-width: 572px){
+  .card{
+    height: 80%;
+    width: 70%;
+  }
+}
+

@@ -1,0 +1,194 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "IMG_EDITOR" %}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href=" {% static 'css/home.css' %}">
+<style>
+  .vip-tag{
+    background: rgb(243,240,21);
+    background: linear-gradient(90deg, rgba(243,240,21,1) 0%, rgba(248,45,45,1) 100%, rgba(252,176,69,1) 100%);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 25px rgb(255, 174, 0);
+  }
+</style>
+<div style="height: 100%;width: 100%;" class="box ">
+  <div style="width: 100%; height: 100%;margin: 0;" class="row">
+    <div style="width: 100%; height: 100%;" class="col-xs-12 col-lg-8 left pt-5 ">
+      <div class="cd-canvas">
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="VIP-tools ">
+        <div  class="row" style="position: relative;">
+          <p style="position: absolute;top:-50px;left: 15% ;padding: 10px 20px;border-radius: 20px;" class="vip-tag" >VIP Tools</p>
+          <div class="col">
+            <div class="Click-here">
+              
+              <i class="fas fa-expand-arrows-alt"></i>  <br>
+              <p style="font-size: 1rem;">Resize</p>
+            </div>
+            <div class="custom-model-main">
+              <div class="custom-model-inner">        
+              <div class="close-btn">×</div>
+                  <div class="custom-model-wrap">
+                      <div class="pop-up-content-wrap text-center">
+                        <img src="{% static 'img/upgrade.png' %}" alt="">
+                        <div class="content mt-3">
+                          <b style="font-family: Russo One; font-size: 20px;color:#ffffff ;"> Upgrade to VIP member to use this tool </b> <br>
+                          <a style="text-decoration: none;font-family: Russo One;" class="upgrade-btn "  href="#">Upgrade <i class="fas fa-crown"></i> </a> 
+                        </div>
+                        
+                      </div>
+                  </div>  
+              </div>  
+              <div class="bg-overlay"></div>
+          </div>
+          </div>
+          <div class="col">
+            <div class="Click-here">
+              <i class="fas fa-crop-alt"></i><br>
+              <p style="font-size: 1rem;">Crop</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="Click-here">
+              <i class="fas fa-sync-alt"></i><br>
+              <p style="font-size: 1rem;">Rotate</p>
+            </div>
+          </div>
+          <div class="col"><div class="Click-here">
+            <i class="fas fa-pencil-alt"></i><br>
+            <p style="font-size: 1rem;">Draw</p>
+          </div></div>
+          <div class="col">
+            <div class="Click-here">
+              <i class="fas fa-text-height"></i><br>
+              <p style="font-size: 1rem;">Text</p>
+            </div>
+          </div>
+          
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="col-xs-12 col-lg-4 right pt-2 ">
+      <div class="upload-box">
+        <input type="file" id="upload-btn" placeholder="Upload Image to Editor" />
+        <label class="mr-3" for="upload-btn">Upload </label>
+        <button class="ml-3" id="download-btn"> Download</button>
+
+        <hr>
+      <h4 style="color: white; text-align: left;"> Interactive </h4>
+      </div>
+      <div class="cd-filters">
+        <div class="filters">
+          <label for="brightness">Brightness</label>
+          <input id="brightness" name="brightness" type="range" min="-100" max="100" value="0">
+          <span id="brightness-value"></span>
+        </div>
+        <div class="filters">
+          <label for="contrast">Contrast</label>
+          <input id="contrast" name="contrast" type="range" min="-50" max="50" value="0">
+          <span id="contrast-value"></span>
+        </div>
+        <div class="filters">
+          <label for="saturation">Saturation</label>
+          <input id="saturation" name="saturation" type="range" min="-100" max="100" value="0">
+          <span id="saturation-value"></span>
+        </div>
+        <div class="filters">
+          <label for="vibrance">Vibrance</label>
+          <input id="vibrance" name="vibrance" type="range" min="-100" max="100" value="0">
+          <span id="vibrance-value"></span>
+        </div>
+        <div class="filters">
+          <label for="exposure">Exposure</label>
+          <input id="exposure" name="exposure" type="range" min="-100" max="100" value="0">
+          <span id="exposure-value"></span>
+        </div>
+        <div class="filters">
+          <label for="hue">Hue</label>
+          <input id="hue" name="hue" type="range" min="0" max="100" value="0">
+          <span id="hue-value"></span>
+        </div>
+        <div class="filters">
+          <label for="noise">Noise</label>
+          <input id="noise" name="noise" type="range" min="0" max="100" value="0">
+          <span id="noise-value"></span>
+        </div>
+        <div class="filters">
+          <label for="clip">Clip</label>
+          <input id="clip" name="clip" type="range" min="0" max="100" value="0">
+          <span id="clip-value"></span>
+        </div>
+        <!-- <div class="filters">
+          <label for="sharpen">sharpen</label>
+          <input id="sharpen" name="sharpen" type="range" min="0" max="100" value="0">
+          <span  id = "sharpen-value"></span>
+        </div> -->
+        <div class="filters">
+          <label for="stackBlur">StackBlur</label>
+          <input id="stackBlur" name="stackBlur" type="range" min="0" max="20" value="0">
+          <span id="stackBlur-value"></span>
+        </div>
+        <!-- <div class="filters">
+          <label for="gamma">gamma</label>
+          <input id="gamma" name="gamma" type="range" min="0" max="10" value="0" step="0.1">
+          <span  id = "gamma-value"></span>
+        </div> -->
+      </div>
+      <hr>
+      <h4 style="color: white; text-align: left;"> Preset filters  </h4>
+      <div class="editor-buttons">
+
+        <div class="row">
+          <div class=" col-4">
+            <button id="vintage-btn">Vintage</button>
+            <button id="lomo-btn">Lomo</button>
+            <button id="grungy-btn">Grungy</button>
+          </div>
+          <div class=" col-4">
+            <button id="orangePeel-btn">Orange Peel</button>
+            <button id="oldBoot-btn">Old Boot</button>
+            <button id="hemingway-btn">Hemingway</button>
+          </div>
+          <div class=" col-4">
+            <button id="glowingSun-btn">Glowing Sun</button>
+            <button id="hazyDays-btn">Hazy Days</button>
+            <button id="pinhole-btn">Pinhole</button>
+          </div>
+        </div>
+
+
+      </div>
+      <hr>
+
+      <button id="reset-btn"> Reset</button>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js'></script>
+
+<script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/showHomeValue.js' %}"></script>
+
+
+
+{% endblock %}
