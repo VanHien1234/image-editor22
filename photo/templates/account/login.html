@@ -56,6 +56,9 @@
           <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
           <button class="btn-grad primaryAction" type="submit">{% trans "Sign In" %}</button>
         </form>
+        {% if form.errors %}
+        <p>Your username or password didn't match. Please try again.</p>
+        {% endif %}
       </div>
     </div>
   </div>
